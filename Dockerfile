@@ -1,4 +1,4 @@
-FROM angular/ngcontainer:latest
+FROM teracy/angular-cli:latest
 
 ARG APP_HOME=/app
 
