@@ -9,6 +9,6 @@ services:
       - .:/app:z
     ports:
       - "4200:4200"
-    entrypoint: /bin/bash
+    command: ["ng","serve","--host=0.0.0.0","--live-reload=true","--watch=true","--poll=2000","--disable-host-check"]
     tty: true
     stdin_open: true
