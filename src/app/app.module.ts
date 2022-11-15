@@ -14,14 +14,18 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MoviesComponent } from './movies/movies.component';
-import { ActorsComponent } from './actors/actors.component';
+
+import { MoviesTableComponent } from './movies-table/movies-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { ActorsTableComponent } from './actors-table/actors-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent,
-    ActorsComponent,
+    MoviesTableComponent,
+    ActorsTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +40,9 @@ import { ActorsComponent } from './actors/actors.component';
     MatDividerModule,
     MatToolbarModule,
     MatCardModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

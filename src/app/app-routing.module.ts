@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { MoviesComponent } from './movies/movies.component'
-import { ActorsComponent } from './actors/actors.component'
+import { MoviesTableComponent } from './movies-table/movies-table.component'
+import { ActorsTableComponent } from './actors-table/actors-table.component'
 
 const routes: Routes = [
   {
@@ -12,11 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'movies',
-    component: MoviesComponent,
+    component: MoviesTableComponent,
   },
   {
     path: 'actors',
-    component: ActorsComponent,
+    component: ActorsTableComponent,
   },
 ];
 
