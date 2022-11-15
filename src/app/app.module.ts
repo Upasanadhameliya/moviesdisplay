@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BodyComponent } from './body/body.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 // Import your library
 import { NgSimpleSidebarModule } from 'ng-simple-sidebar';
@@ -21,9 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    BodyComponent,
-    SidenavComponent,
-    DashboardComponent
   ],
   imports: [
     BrowserModule,
