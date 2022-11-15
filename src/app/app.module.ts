@@ -14,10 +14,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MoviesComponent } from './movies/movies.component';
+import { ActorsComponent } from './actors/actors.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MoviesComponent,
+    ActorsComponent,
   ],
   imports: [
     BrowserModule,
