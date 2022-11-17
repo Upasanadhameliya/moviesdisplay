@@ -3,35 +3,24 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 // TODO: Replace this with your own data model type
 export interface MoviesTableItem {
-  name: string;
-  id: number;
+  title: string;
+  description: string;
+  release_date: string;
+  votes: number;
+  num_of_actors: number;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: MoviesTableItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  {title: "Demo1", description: 'Demo1', release_date: 'Demo1', votes: 1, num_of_actors: 1},
+  {title: "Demo1", description: 'Demo1', release_date: 'Demo1', votes: 1, num_of_actors: 1},
+  {title: "Demo1", description: 'Demo1', release_date: 'Demo1', votes: 1, num_of_actors: 1},
+  {title: "Demo1", description: 'Demo1', release_date: 'Demo1', votes: 1, num_of_actors: 1},
 ];
 
 /**
@@ -39,13 +28,16 @@ const EXAMPLE_DATA: MoviesTableItem[] = [
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
+@Injectable()
 export class MoviesTableDataSource extends DataSource<MoviesTableItem> {
   data: MoviesTableItem[] = EXAMPLE_DATA;
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     super();
+    this.http.get('http://localhost:8000/api/movies/')
+        .subscribe(result => console.log(result));
   }
 
   /**
@@ -54,6 +46,7 @@ export class MoviesTableDataSource extends DataSource<MoviesTableItem> {
    * @returns A stream of the items to be rendered.
    */
   connect(): Observable<MoviesTableItem[]> {
+
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
@@ -90,18 +83,19 @@ export class MoviesTableDataSource extends DataSource<MoviesTableItem> {
    * this would be replaced by requesting the appropriate data from the server.
    */
   private getSortedData(data: MoviesTableItem[]): MoviesTableItem[] {
-    if (!this.sort || !this.sort.active || this.sort.direction === '') {
-      return data;
-    }
+    // if (!this.sort || !this.sort.active || this.sort.direction === '') {
+    //   return data;
+    // }
 
-    return data.sort((a, b) => {
-      const isAsc = this.sort?.direction === 'asc';
-      switch (this.sort?.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
-        default: return 0;
-      }
-    });
+    // return data.sort((a, b) => {
+    //   const isAsc = this.sort?.direction === 'asc';
+    //   switch (this.sort?.active) {
+    //     case 'name': return compare(a.name, b.name, isAsc);
+    //     case 'id': return compare(+a.id, +b.id, isAsc);
+    //     default: return 0;
+    //   }
+    // });
+    return data;
   }
 }
 

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // Import your library
 import { NgSimpleSidebarModule } from 'ng-simple-sidebar';
@@ -21,6 +22,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ActorsTableComponent } from './actors-table/actors-table.component';
 
+import { MoviesTableDataSource } from './movies-table/movies-table-datasource'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,7 @@ import { ActorsTableComponent } from './actors-table/actors-table.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
     // Specify your library as an import
     NgSimpleSidebarModule,
@@ -44,7 +48,9 @@ import { ActorsTableComponent } from './actors-table/actors-table.component';
     MatPaginatorModule,
     MatSortModule,
   ],
-  providers: [],
+  providers: [
+    MoviesTableDataSource
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

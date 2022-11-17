@@ -18,8 +18,8 @@ export class MoviesTableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
 
-  constructor() {
-    this.dataSource = new MoviesTableDataSource();
+  constructor(dataSource: MoviesTableDataSource) {
+    this.dataSource = dataSource;
   }
 
   ngAfterViewInit(): void {
