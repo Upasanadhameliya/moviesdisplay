@@ -7,17 +7,17 @@
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
-  <mat-card> Angular Frontend - Django API - Project</mat-card>
+  <mat-card> Angular Frontend - Django API - Project </mat-card>
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-    <button mat-button class="menu-button" routerLink="/home">
+    <button mat-button class="menu-button" routerLink="/movies">
       <mat-icon>theaters</mat-icon>
       <span>Movies</span>
     </button>
-    <button mat-button class="menu-button" routerLink="/profile">
+    <button mat-button class="menu-button" routerLink="/actors">
       <mat-icon>diversity_3</mat-icon>
       <span>Actors</span>
     </button>

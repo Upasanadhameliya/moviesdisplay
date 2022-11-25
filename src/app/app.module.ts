@@ -3,9 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BodyComponent } from './body/body.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // Import your library
 import { NgSimpleSidebarModule } from 'ng-simple-sidebar';
@@ -18,16 +16,24 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MoviesTableComponent } from './movies-table/movies-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { ActorsTableComponent } from './actors-table/actors-table.component';
+
+import { MoviesTableDataSource } from './movies-table/movies-table-datasource'
+
 @NgModule({
   declarations: [
     AppComponent,
-    BodyComponent,
-    SidenavComponent,
-    DashboardComponent
+    MoviesTableComponent,
+    ActorsTableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
     // Specify your library as an import
     NgSimpleSidebarModule,
@@ -38,8 +44,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatDividerModule,
     MatToolbarModule,
     MatCardModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
-  providers: [],
+  providers: [
+    MoviesTableDataSource
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
